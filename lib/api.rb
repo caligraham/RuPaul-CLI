@@ -13,7 +13,6 @@ class Api
             data.each do |queen_data|
                 Queens.new(queen_data["name"], queen_data["winner"], queen_data["quote"])
         end
-            binding.pry
     end
 
 end
