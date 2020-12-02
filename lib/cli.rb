@@ -1,7 +1,7 @@
 class Cli
 
     def start
-        puts "Welcome racers, start your engines please! Press any key to continue."
+        puts "Welcome racers, start your engines please!"
         puts "Vroom vroom, loading herstorical Queens...."
         Api.load_data
         main_menu_options
