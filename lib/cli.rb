@@ -80,13 +80,14 @@ class Cli
 
     def select_again_or_exit
         puts "Well, would you like to see more Glam Gals?"
-        puts "'werk' for main menu"
+        puts "'more' for main menu"
         puts "'bye' to get the hell outta here!"
         input = get_input
 
-        if input == "werk"
-            queens_details_menu_options
+        if input == "more"
             list_queens
+            queens_details_menu_options
+            
         elsif input == "bye"
             puts "See you around, gorgeous!"
             exit
