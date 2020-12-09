@@ -1,18 +1,22 @@
 class Cli
 
+    # start of program. welcome message & Api is loaded & calls the load_data method
     def start
         puts "Welcome racers, start your engines please!"
         puts "Vroom vroom, loading herstorical Queens...."
+        puts " "
         Api.load_data
         main_menu_options
     end
 
+    # displays option menu to user & gives instructions
     def main_menu_options
         puts "Type werk, to see a list of Queens!"
         puts "Type bye, to make a dramatic exit"
         main_menu
     end
 
+    # takes user input and uses control flow to determine next step
     def main_menu
         input = get_input
 
@@ -29,14 +33,17 @@ class Cli
 
     end
 
+    # displays an error message to user when input does not match options
     def invalid_choice
         puts "WRONG, try again trick!"
     end
-
+ 
+    # receives user input
     def get_input
         gets.chomp
     end
 
+    # iterates over Queens class & displays list of queens in numerical index format
     def list_queens
         Queens.all.each.with_index(1) do |queen, index|
             puts "#{index}. #{queen.name}"
@@ -45,14 +52,16 @@ class Cli
         queens_details_menu_options
     end
 
+    # instructs user to select which queen they would like to see details from or exit program
     def queens_details_menu_options 
         puts "Choose your Queen, darling! Enter the number you wish to see."
         puts "Or type 'bye' to get out of here!"
         queens_details_menu
     end
 
-
+    # takes user input for which queen the user would like to see details and displays the queen, & uses control flow if user decides to exit or puts invalid entry
     def queens_details_menu
+        
         input = get_input
 
         if input.to_i.between?(1, Queens.all.length)
@@ -70,14 +79,18 @@ class Cli
         end
     end
 
+    # structures information of drag queens. displays name, winning status & famous quote
     def print_queens_details(queen)
         puts "********************"
+        puts " "
         puts "Queen Name: #{queen.name}"
         puts "Were they a winner? #{queen.winner}"
         puts "Famous for saying... #{queen.quote}"
+        puts " "
         puts "********************"
     end
 
+    # control flow method that allows user to select another queen or exit program
     def select_again_or_exit
         puts "Well, would you like to see more Glam Gals?"
         puts "'more' for main menu"
