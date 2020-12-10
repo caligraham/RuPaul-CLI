@@ -36,6 +36,7 @@ class Cli
     # displays an error message to user when input does not match options
     def invalid_choice
         puts "WRONG, try again trick!"
+        puts " "
     end
  
     # receives user input
@@ -43,7 +44,7 @@ class Cli
         gets.chomp
     end
 
-    # iterates over Queens class & displays list of queens in numerical index format
+    # iterates over Queens array & displays each queen's name listed in numerical index format
     def list_queens
         Queens.all.each.with_index(1) do |queen, index|
             puts "#{index}. #{queen.name}"
@@ -59,7 +60,7 @@ class Cli
         queens_details_menu
     end
 
-    # takes user input for which queen the user would like to see details and displays the queen, & uses control flow if user decides to exit or puts invalid entry
+    # takes user input for which option they would like. Uses control flow. If user wants to see queens information then print_queens_details method is called, or exit, or invalid choice.
     def queens_details_menu
         
         input = get_input
