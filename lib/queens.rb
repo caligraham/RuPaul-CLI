@@ -16,5 +16,9 @@ def self.all
     @@all
 end
 
+def self.winners
+    self.all.select { |queen| queen.winner }
+end
+
 
 end

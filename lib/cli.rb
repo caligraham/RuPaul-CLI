@@ -13,6 +13,7 @@ class Cli
     def main_menu_options
         puts "Type werk, to see a list of Queens!"
         puts "Type bye, to make a dramatic exit"
+        puts "Type win, to see just the winning gals"
         main_menu
     end
 
@@ -26,6 +27,11 @@ class Cli
         elsif input == "bye"
             puts "Don't let the door hit you on the way out!!"
             exit
+        elsif input == "win"
+            Queens.winners.each.with_index(1) do |queen, index|
+                puts "#{index}. #{queen.name}"
+            end
+            main_menu_options
         else
             invalid_choice
             main_menu_options
@@ -37,6 +43,7 @@ class Cli
     def invalid_choice
         puts "WRONG, try again trick!"
         puts " "
+        main_menu_options 
     end
  
     # receives user input
